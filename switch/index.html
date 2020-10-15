@@ -5,350 +5,445 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Switch Template</title>
+    <title>REA - NodeJS</title>
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,700|IBM+Plex+Sans:600" rel="stylesheet">
     <link rel="stylesheet" href="dist/css/style.css">
+    <link rel="stylesheet" href="dist/css/style_nav.css">
     <link rel="stylesheet" href="dist/css/custom.css">
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" />
-    
+
 </head>
 
-<body class="is-boxed has-animations">
-    <div class="body-wrap boxed-container">
-
-
-        <main>
-            <section class="sidebar">
-                <div>
-                    <nav id="sidebar">
-                        <div class="custom-menu">
-                            <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                    </button>
-                </div>
-                      <div class="img bg-wrap text-center py-4" style="background-image: url(images/nodejs-logo-blur.png);">
-                          <div class="user-logo">
-                              <div class="img" style="background-image: url(images/nodejs.svg);"></div>
-                              <h3>NodeJS</h3>
-                          </div>
-                      </div>
-                <ul class="list-unstyled components mb-5">
-                  <li class="active">
-                    <a href="#">
-                      <span class="fab fa-node-js mr-3"></span>O que é NodeJS
-                    </a>
-                  </li>
-                  <li>
-                      <a class="collapsed" href="#testeaccordion" data-toggle="collapse">
-                        <span class="fas fa-sitemap mr-3"></span>A Arquitetura
-                      </a>
-                      <div class="collapse" id="testeaccordion">
-                        <ul class="list-unstyled components">
-                          <li class="pl-3"><a href=""><span class="fas fa-undo-alt mr-2"></span>Single Thread Event Loop</a></li>
-                          <li class="pl-3"><a href=""><span class="fas fa-sync-alt mr-2"></span>Non-blocking I/O x Blocking I/O</a></li>
-                        </ul>
-                      </div>
-                  </li>
-                  <li>
-                    <a href="#"><span class="fas fa-database mr-3"></span>Gerenciamento de Memória</a>
-                  </li>
-                  <li>
-                    <a href="#"><span class="fas fa-code mr-3"></span>Node, C++ e a Libuv</a>
-                  </li>
-                  <li>
-                    <a href="#"><span class="fa fa-trophy mr-3"></span>Aplicações e Vantagens</a>
-                  </li>
-                  <li>
-                    <a href="#"><span class="fas fa-book-open mr-3"></span>Referências</a>
-                  </li>
+<body class="has-animations">
+    <div class="body-wrap"> <!--  boxed-container  -->
+    <nav class="toc" id="menu">
+        <ul>
+            <li><a href="#oque_e_nodejs">O que é NodeJS</a><span id="closebtn"><i class="fas fa-times"></i></span></li>
+            <li>
+                <a href="#arquitetura">A Arquitetura</a>
+                <ul>
+                    <li><a href="#single_thread">Single Thread Event Loop</a></li>
+                    <li><a href="#non_blocking">Non-blocking I/O x Blocking I/O</a></li>
                 </ul>
-        
-                </nav>
-                </div>                
-            </section>
+            </li>
+            <li><a href="#gerenciamento_memoria">Gerenciamento de Memória</a></li>
+            <li><a href="#node_c_libuv">Node, C++ e a Libuv</a></li>
+            <li><a href="#aplicacoes_e_vantagens">Aplicações e Vantagens</a></li>
+            <li><a href="#referencias">Referências</a></li>
 
-            
-            <div style="clear: both;">
-                <header class="site-header">
-                    <div class="container">
-                        <div class="site-header-inner">
-                            <div class="brand header-brand">
-                                <h1 class="m-0">
-                                    <a href="#">
-                                        <img class="header-logo-image asset-light" src="dist/images/logo-light.svg"
-                                            alt="Logo">
-                                        <img class="header-logo-image asset-dark" src="dist/images/logo-dark.svg"
-                                            alt="Logo">
-                                    </a>
-                                </h1>
-                            </div>
-                        </div>
-                    </div>
-                </header>
+            </li>
+        </ul>
+        <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <path stroke="#444" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+        </svg>
+    </nav>
 
-                <section class="hero" id="hero">
-                    <div class="container">
-                        <div class="hero-inner">
-                            <div class="hero-copy">
-                                <h1 class="hero-title mt-0">Landing template for startups</h1>
-                                <p class="hero-paragraph">Our landing page template works on all devices, so you only
-                                    have to set it up once, and get beautiful results forever.</p>
-                                <div class="hero-cta">
-                                    <a class="button button-primary" href="#">Buy it now</a>
-                                    <div class="lights-toggle">
-                                        <input id="lights-toggle" type="checkbox" name="lights-toggle" class="switch"
-                                            checked="checked">
-                                        <label for="lights-toggle" class="text-xs"><span>Turn me <span
-                                                    class="label-text">dark</span></span></label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hero-media">
-                                <div class="header-illustration">
-                                    <img class="header-illustration-image asset-light"
-                                        src="dist/images/header-illustration-light.svg" alt="Header illustration">
-                                    <img class="header-illustration-image asset-dark"
-                                        src="dist/images/header-illustration-dark.svg" alt="Header illustration">
-                                </div>
-                                <div class="hero-media-illustration">
-                                    <img class="hero-media-illustration-image asset-light"
-                                        src="dist/images/hero-media-illustration-light.svg"
-                                        alt="Hero media illustration">
-                                    <img class="hero-media-illustration-image asset-dark"
-                                        src="dist/images/hero-media-illustration-dark.svg"
-                                        alt="Hero media illustration">
-                                </div>
-                                <div class="hero-media-container">
-                                    <img class="hero-media-image asset-light" src="dist/images/hero-media-light.svg"
-                                        alt="Hero media">
-                                    <img class="hero-media-image asset-dark" src="dist/images/hero-media-dark.svg"
-                                        alt="Hero media">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="features section" id="features">
-                    <div class="container">
-                        <div class="features-inner section-inner has-bottom-divider">
-                            <div class="features-header text-center">
-                                <div class="container-sm">
-                                    <h2 class="section-title mt-0">The Product</h2>
-                                    <p class="section-paragraph">Lorem ipsum is common placeholder text used to
-                                        demonstrate the graphic elements of a document or visual presentation.</p>
-                                    <div class="features-image">
-                                        <img class="features-illustration asset-dark"
-                                            src="dist/images/features-illustration-dark.svg" alt="Feature illustration">
-                                        <img class="features-box asset-dark" src="dist/images/features-box-dark.svg"
-                                            alt="Feature box">
-                                        <img class="features-illustration asset-dark"
-                                            src="dist/images/features-illustration-top-dark.svg"
-                                            alt="Feature illustration top">
-                                        <img class="features-illustration asset-light"
-                                            src="dist/images/features-illustration-light.svg"
-                                            alt="Feature illustration">
-                                        <img class="features-box asset-light" src="dist/images/features-box-light.svg"
-                                            alt="Feature box">
-                                        <img class="features-illustration asset-light"
-                                            src="dist/images/features-illustration-top-light.svg"
-                                            alt="Feature illustration top">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="features-wrap">
-                                <div class="feature is-revealing">
-                                    <div class="feature-inner">
-                                        <div class="feature-icon">
-                                            <img class="asset-light" src="dist/images/feature-01-light.svg"
-                                                alt="Feature 01">
-                                            <img class="asset-dark" src="dist/images/feature-01-dark.svg"
-                                                alt="Feature 01">
-                                        </div>
-                                        <div class="feature-content">
-                                            <h3 class="feature-title mt-0">Discover</h3>
-                                            <p class="text-sm mb-0">Lorem ipsum dolor sit amet, consecte adipiscing
-                                                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                                                dui.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="feature is-revealing">
-                                    <div class="feature-inner">
-                                        <div class="feature-icon">
-                                            <img class="asset-light" src="dist/images/feature-02-light.svg"
-                                                alt="Feature 02">
-                                            <img class="asset-dark" src="dist/images/feature-02-dark.svg"
-                                                alt="Feature 02">
-                                        </div>
-                                        <div class="feature-content">
-                                            <h3 class="feature-title mt-0">Discover</h3>
-                                            <p class="text-sm mb-0">Lorem ipsum dolor sit amet, consecte adipiscing
-                                                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                                                dui.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="feature is-revealing">
-                                    <div class="feature-inner">
-                                        <div class="feature-icon">
-                                            <img class="asset-light" src="dist/images/feature-03-light.svg"
-                                                alt="Feature 03">
-                                            <img class="asset-dark" src="dist/images/feature-03-dark.svg"
-                                                alt="Feature 03">
-                                        </div>
-                                        <div class="feature-content">
-                                            <h3 class="feature-title mt-0">Discover</h3>
-                                            <p class="text-sm mb-0">Lorem ipsum dolor sit amet, consecte adipiscing
-                                                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                                                dui.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-             
-                <section class="section" id="cta">
-                    <div class="container-sm">
-                        <div class="cta-inner section-inner">
-                            <div class="cta-header text-center">
-                                <h2 class="section-title mt-0">Get it and Switch</h2>
-                                <p class="section-paragraph">NodeJS é uma plataforma back-end construída em cima do motor de interpretação de Javascript do Chrome, chamado V8 que, por sua vez, foi construído utilizando C++, que permite a execução de scripts Javascript no lado do servidor.
-                                    “Node.js é uma plataforma para construir aplicações web escaláveis de alta performance usando JavaScript”
-                                    Não podemos dizer que Node é um Framework nem um Middleware nem uma Linguagem, na verdade trata-se de um runtime Javascript. Com o crescimento exponencial de bibliotecas, recursos e da comunidade, podemos dizer que Node tornou-se uma plataforma.
-                                    Isso significa que com o Node.js é possível criar aplicações Javascript para rodar como uma aplicação standalone em uma máquina, não dependendo de um browser para a execução, como estamos acostumados.</p>
-                                <div class="cta-cta">
-                                    <!-- <a class="button button-primary" href="#">Buy it now</a> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <hr>
-                <section class="section" id="cta">
-                    <div class="container-sm">
-                        <div class="cta-inner section-inner">
-                            <div class="cta-header text-center">
-                                <h2 class="section-title mt-0">Aplicações e vantagens</h2>
-                                <p class="section-paragraph">A simplicidade e alta escalabilidade, onde é possível criar e subir um servidor rapidamente. Além disso, considerado para muitos um problema de segurança preocupante, a facilidade de integrar recursos novos através de dependências e frameworks é um dos destaques do Node.
-
-                                    Performance, uma vez que é baseado na libuv (Escrito em C), e interpreta código JavaScript com a ajuda do motor V8 (Escrito em C++) do Google, o qual possui constante revisão de performance por parte desta. O Node é capaz de lidar com várias requisições simultâneas de maneira eficiente através de sua arquitetura Event-loop single-thread e non-blocking I/O, o que o torna uma escolha muito popular quando se trata de baixo custo de processamento para grandes e pequenas aplicações.
-                                    Como o Node executa fora de um navegador, sua performance e gerenciamento de recursos acaba sendo muito mais eficiente, podendo usar recursos que não estão presentes nestes, como se comunicar diretamente com o gerenciador de arquivos do sistema, sockets TCP, entre outros.
-                                    
-                                    Por se tratar de um projeto open-source, possui suporte de grandes empresas e um número imenso de usuários adicionando e aperfeiçoando recursos diariamente. 
-                                    
-                                    Com o crescimento da IoT, muitas dessas soluções tem empregado Node, por sua facilidade e eficiência, considerando que o Node é capaz de lidar com várias requisições através de sua arquitetura, o que é ideal para dispositivos com baixo poder de processamento como sistemas embarcados.
-                                    Também muito popular, a arquitetura de microsserviços - utilizada por grandes empresa como Netflix e Amazon - ganha força com o uso do Node, pois a utilização de frameworks, como o Express, permite a criação de módulos responsáveis por partes específicas de um sistema, tornando fácil adicionar funcionalidades e dar manutenção.
-                                    Entre outras aplicações, está o desenvolvimento de uma única API com Node, capaz de integrar sistemas Web, Desktop e Mobile, tornando aplicações mais consistentes e solidificando o ecossistema.
-                                    </p>
-                                <div class="cta-cta">
-                                    <!-- <a class="button button-primary" href="#">Buy it now</a> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <hr>
-                <section class="section" id="cta">
-                    <div class="container-sm">
-                        <div class="cta-inner section-inner">
-                            <div class="cta-header text-center">
-                                <h2 class="section-title mt-0">Get it and Switch</h2>
-                                <p class="section-paragraph">Lorem ipsum is common placeholder text used to demonstrate
-                                    the graphic elements of a document or visual presentation.</p>
-                                <div class="cta-cta">
-                                    <!-- <a class="button button-primary" href="#">Buy it now</a> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="cta section" id="cta">
-                    <div class="container-sm">
-                        <div class="cta-inner section-inner">
-                            <div class="cta-header text-center">
-                                <h2 class="section-title mt-0">Get it and Switch</h2>
-                                <p class="section-paragraph">Lorem ipsum is common placeholder text used to demonstrate
-                                    the graphic elements of a document or visual presentation.</p>
-                                <div class="cta-cta">
-                                    <a class="button button-primary" href="#">Buy it now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </main>
-
-        <footer class="site-footer has-top-divider" id="footer">
+    <div class="content has-animations">
+        <header class="site-header">
             <div class="container">
-                <div class="site-footer-inner">
-                    <div class="brand footer-brand">
-                        <a href="#">
-                            <img class="asset-light" src="dist/images/logo-light.svg" alt="Logo">
-                            <img class="asset-dark" src="dist/images/logo-dark.svg" alt="Logo">
-                        </a>
-                    </div>
-                    <ul class="footer-links list-reset">
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
-                        <li>
-                            <a href="#">About us</a>
-                        </li>
-                        <li>
-                            <a href="#">FAQ's</a>
-                        </li>
-                        <li>
-                            <a href="#">Support</a>
-                        </li>
-                    </ul>
-                    <ul class="footer-social-links list-reset">
-                        <li>
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
                             <a href="#">
-                                <span class="screen-reader-text">Facebook</span>
-                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M6.023 16L6 9H3V6h3V4c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V6H13l-1 3H9.28v7H6.023z"
-                                        fill="#FFF" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="screen-reader-text">Twitter</span>
-                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M16 3c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4C.7 7.7 1.8 9 3.3 9.3c-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4C15 4.3 15.6 3.7 16 3z"
-                                        fill="#FFF" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="screen-reader-text">Google</span>
-                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M7.9 7v2.4H12c-.2 1-1.2 3-4 3-2.4 0-4.3-2-4.3-4.4 0-2.4 2-4.4 4.3-4.4 1.4 0 2.3.6 2.8 1.1l1.9-1.8C11.5 1.7 9.9 1 8 1 4.1 1 1 4.1 1 8s3.1 7 7 7c4 0 6.7-2.8 6.7-6.8 0-.5 0-.8-.1-1.2H7.9z"
-                                        fill="#FFF" />
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="footer-copyright">&copy; 2018 Switch, all rights reserved</div>
+                                <img class="header-logo-image asset-light" src="dist/images/nodejslogo.png"
+                                    alt="Logo">
+                                <img class="header-logo-image asset-dark" src="dist/images/nodejslogodark.png"
+                                    alt="Logo">
+							</a>
+                        </h1>
+					</div>
+					<div class="hero-cta">
+						<div class="menu-toggle" style="margin-right: 25px;">
+							<input id="menu-toggle" type="checkbox" name="menu-toggle" class="switch"
+								checked="checked">
+							<label for="menu-toggle" class="text-xs"><span>Menu <span
+										class="label-text">on</span></span></label>
+						</div>
+						<div class="lights-toggle">
+							<input id="lights-toggle" type="checkbox" name="lights-toggle" class="switch"
+								checked="checked">
+							<label for="lights-toggle" class="text-xs"><span>Lights <span
+										class="label-text">on</span></span></label>
+						</div>
+					</div>
                 </div>
             </div>
-        </footer>
+        </header>
+
+        <section class="hero" id="oque_e_nodejs">
+            <div class="container">
+                <div class="hero-inner">
+                    <div class="hero-copy">
+						<h1 class="hero-title mt-0">O que é Nodejs</h1>
+                        <p class="hero-paragraph">NodeJS é uma plataforma back-end construída em cima do motor de interpretação de Javascript do Chrome, chamado V8 que, por sua vez, foi construído utilizando C++, que permite a execução de scripts Javascript no lado do servidor.
+							“Node.js é uma plataforma para construir aplicações web escaláveis de alta performance usando JavaScript”
+							Não podemos dizer que Node é um Framework nem um Middleware, nem uma Linguagem, na verdade trata-se de um runtime Javascript. Com o crescimento exponencial de bibliotecas, recursos e da comunidade, podemos dizer que Node tornou-se uma plataforma.
+							Isso significa que com o Node.js é possível criar aplicações Javascript para rodar como uma aplicação standalone em uma máquina, não dependendo de um browser para a execução, como estamos acostumados.</p>
+                    </div>
+                    <div class="hero-media">
+                        <div class="header-illustration">
+                            <img class="header-illustration-image asset-light"
+                                src="dist/images/header-illustration-light.svg" alt="Header illustration">
+                            <img class="header-illustration-image asset-dark"
+                                src="dist/images/header-illustration-dark.svg" alt="Header illustration">
+                        </div>
+                        <div class="hero-media-illustration">
+                            <img class="hero-media-illustration-image asset-light"
+                                src="dist/images/hero-media-illustration-light.svg"
+                                alt="Hero media illustration">
+                            <img class="hero-media-illustration-image asset-dark"
+                                src="dist/images/hero-media-illustration-dark.svg"
+                                alt="Hero media illustration">
+                        </div>
+                        <div class="hero-media-container">
+							<img class="hero-media-image asset-light" src="dist/images/hero-media-light.svg"
+								alt="Hero media">
+							<img class="hero-media-image asset-light" id="nodejs-feature" src="src/images/nodejslogofeature.png" alt="">
+                            <img class="hero-media-image asset-dark" src="dist/images/hero-media-dark.svg"
+								alt="Hero media">
+								<img class="hero-media-image asset-dark" id="nodejs-feature" src="src/images/nodejslogofeaturedark.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features section" id="arquitetura">
+            <div class="container">
+                <div class="features-inner section-inner has-bottom-divider">
+                    <div class="features-header text-center">
+                        <div class="container-sm">
+                            <h2 class="section-title mt-0">Arquitetura</h2>
+                            <p class="section-paragraph">Lorem ipsum is common placeholder text used to
+                                demonstrate the graphic elements of a document or visual presentation.</p>
+                            <div class="features-image">
+                                <img class="features-illustration asset-dark"
+                                    src="dist/images/features-illustration-dark.svg" alt="Feature illustration">
+                                <img class="features-box asset-dark" src="dist/images/features-box-dark.svg"
+                                    alt="Feature box">
+                                <img class="features-illustration asset-dark"
+                                    src="dist/images/features-illustration-top-dark.svg"
+                                    alt="Feature illustration top">
+                                <img class="features-illustration asset-light"
+                                    src="dist/images/features-illustration-light.svg"
+                                    alt="Feature illustration">
+                                <img class="features-box asset-light" src="dist/images/features-box-light.svg"
+                                    alt="Feature box">
+                                <img class="features-illustration asset-light"
+                                    src="dist/images/features-illustration-top-light.svg"
+                                    alt="Feature illustration top">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="features-wrap">
+                        <div class="feature is-revealing">
+                            <div class="feature-inner">
+                                <div class="feature-icon">
+                                    <img class="asset-light" src="dist/images/feature-01-light.svg"
+                                        alt="Feature 01">
+                                    <img class="asset-dark" src="dist/images/feature-01-dark.svg"
+                                        alt="Feature 01">
+                                </div>
+                                <div class="feature-content">
+                                    <h3 class="feature-title mt-0">Discover</h3>
+                                    <p class="text-sm mb-0">Lorem ipsum dolor sit amet, consecte adipiscing
+                                        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                                        dui.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature is-revealing">
+                            <div class="feature-inner">
+                                <div class="feature-icon">
+                                    <img class="asset-light" src="dist/images/feature-02-light.svg"
+                                        alt="Feature 02">
+                                    <img class="asset-dark" src="dist/images/feature-02-dark.svg"
+                                        alt="Feature 02">
+                                </div>
+                                <div class="feature-content">
+                                    <h3 class="feature-title mt-0">Discover</h3>
+                                    <p class="text-sm mb-0">Lorem ipsum dolor sit amet, consecte adipiscing
+                                        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                                        dui.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature is-revealing">
+                            <div class="feature-inner">
+                                <div class="feature-icon">
+                                    <img class="asset-light" src="dist/images/feature-03-light.svg"
+                                        alt="Feature 03">
+                                    <img class="asset-dark" src="dist/images/feature-03-dark.svg"
+                                        alt="Feature 03">
+                                </div>
+                                <div class="feature-content">
+                                    <h3 class="feature-title mt-0">Discover</h3>
+                                    <p class="text-sm mb-0">Lorem ipsum dolor sit amet, consecte adipiscing
+                                        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                                        dui.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section" id="single_thread">
+            <div class="container-sm">
+                <div class="cta-inner section-inner">
+                    <div class="cta-header text-center">
+                        <h2 class="section-title mt-0">Single Thread Event Loop</h2>
+                        <p class="section-paragraph">Um evento no node se refere à qualquer ação executada, seja uma conexão, requisição, abertura de arquivos, etc. No Node é possível criar, disparar e ouvir eventos customizados, através do módulo de Eventos.
+							Podemos entender o Event Loop como um loop que busca novas instruções constantemente. Como o NodeJs roda em uma única thread, há somente um evento ocorrendo por vez, e o que pode parecer uma limitação, na verdade se torna muito útil, pois simplifica a maneira com que se programa, não precisando se preocupar com eventos concorrentes, apenas com o não-bloqueio desse loop. O bloqueio desse loop ocorre quando um código JavaScript demora muito para executar e não retorna o controle para o Event loop, bloqueando a execução de qualquer outro código JavaScript concorrente.
+							No event loop temos a pilha de chamadas (Call Stack), que consiste em uma LIFO (Last In, First Out), e a fila composta de call backs. Call backs podem ser interpretadas como uma função que é chamada quando uma outra determinada função possuir um determinado valor, ou, de maneira informal: “Função A, chame a função B quando você possuir este valor X”.
+							Esse loop checa constantemente esta pilha, verificando se há alguma função a ser executada. Note que só é possível remover um item da pilha, caso este chegue ao fim de sua execução.
+							Se a call stack estiver vazia, o primeiro evento é movido da fila de call backs para a call stack, onde será executado, e essa ação se chama “tick”.
+						</p>
+                        <img src="/src/images/eventloop.png" class="demo-img" alt="">
+                        <br>
+						<br>
+						<h3>Exemplo: </h3>
+                        <!-- <script src="https://embed.runkit.com" data-element-id="callstack-nodejs"></script> -->
+                        <div id="callstack-nodejs">
+                            const bar = () => console.log('bar')
+
+                            const baz = () => console.log('baz')
+
+                            const foo = () => {
+                            	console.log('foo')
+                            	bar()
+                            	baz()
+                            }
+
+                            foo()
+                        </div>
+                        <br>
+                        <br>
+
+                        <img src="/src/images/callstack.png" class="demo-img" alt="">
+                        <p class="section-paragraph">
+                            Na imagem acima temos o detalhe da execução do algoritmo. Nota-se que as chamadas são empilhadas na ordem que acontecem, onde a última está no topo, pois é chamada por último na função “foo”.
+                            Conforme a execução ocorre, percebemos a seguinte ordem de execução:
+                        </p>
+                        <img src="src/images//eventloop-iterations.png" class="demo-img" alt="">
+                        <p class="section-paragraph">Podemos representar as etapas desse mecanismo através da seguinte imagem:</p>
+                        <img src="src/images/eventloop-phases.png" class="demo-img" alt="">
+                        <p class="section-paragraph">Por baixo disso, temos a libuv, que consiste em uma pool de 4 threads que lida com operações que são muito pesadas para o event loop, como operações de entrada e saída, abertura e fechamento de conexões, setTimeout(), entre outros.
+                            Timers: nesse estágio, são executadas callbacks programadas por uma função do tipo setTimeout e setInterval.
+                            Pending Callbacks: Callbacks de entrada e saída deixadas para serem executadas na próxima iteração do loop são executadas nesse momento
+                            Idle, Prepare: Uso interno do node
+                            Poll: Recupera eventos de entrada e saída.
+                            Check: Invoca callbacks do setIntermediate()
+                            Close callbacks: Nesse passo, callbacks de fechamento são gerenciados, como por exemplo o fechamento de um arquivo, ou um socket.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section" id="non_blocking">
+            <div class="container-sm">
+                <div class="cta-inner section-inner">
+                    <div class="cta-header text-center">
+                        <h2 class="section-title mt-0">Non-blocking I/O x Blocking I/O</h2>
+                        <p class="section-paragraph">A simplicidade e alta escalabilidade, onde é possível criar e subir um servidor rapidamente. Além disso, considerado para muitos um problema de segurança preocupante, a facilidade de integrar recursos novos através de dependências e frameworks é um dos destaques do Node.
+
+                            Performance, uma vez que é baseado na libuv (Escrito em C), e interpreta código JavaScript com a ajuda do motor V8 (Escrito em C++) do Google, o qual possui constante revisão de performance por parte desta. O Node é capaz de lidar com várias requisições simultâneas de maneira eficiente através de sua arquitetura Event-loop single-thread e non-blocking I/O, o que o torna uma escolha muito popular quando se trata de baixo custo de processamento para grandes e pequenas aplicações.
+                            Como o Node executa fora de um navegador, sua performance e gerenciamento de recursos acaba sendo muito mais eficiente, podendo usar recursos que não estão presentes nestes, como se comunicar diretamente com o gerenciador de arquivos do sistema, sockets TCP, entre outros.
+
+                            Por se tratar de um projeto open-source, possui suporte de grandes empresas e um número imenso de usuários adicionando e aperfeiçoando recursos diariamente.
+
+                            Com o crescimento da IoT, muitas dessas soluções tem empregado Node, por sua facilidade e eficiência, considerando que o Node é capaz de lidar com várias requisições através de sua arquitetura, o que é ideal para dispositivos com baixo poder de processamento como sistemas embarcados.
+                            Também muito popular, a arquitetura de microsserviços - utilizada por grandes empresa como Netflix e Amazon - ganha força com o uso do Node, pois a utilização de frameworks, como o Express, permite a criação de módulos responsáveis por partes específicas de um sistema, tornando fácil adicionar funcionalidades e dar manutenção.
+                            Entre outras aplicações, está o desenvolvimento de uma única API com Node, capaz de integrar sistemas Web, Desktop e Mobile, tornando aplicações mais consistentes e solidificando o ecossistema.
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section" id="gerenciamento_memoria">
+            <div class="container-sm">
+                <div class="cta-inner section-inner">
+                    <div class="cta-header text-center">
+                        <h2 class="section-title mt-0">Gerenciamento de Memória</h2>
+                        <p class="section-paragraph">Considerando que cada aplicação necessita de quantidades de memória suficientes para funcionar, é necessário reutilizar a memória, principalmente sabendo que este é um recurso não muito abundante em alguns sistemas. No node, a alocação de memória é feita de forma automática pelo Garbage Collector, nos livrando da preocupação de alocar memória e dimensionar elementos corretamente.
+                            O Garbage Collector (Coletor de Lixo), consiste em um mecanismo para gerenciamento automático de memória. Esse trabalho é feito recuperando a memória ocupada por objetos não utilizados, e ele é capaz de identificar isso se dá pelas referências entre os objetos. Se um objeto não é referenciado ou não referencia outro objeto, é considerado lixo. É possível entender isso pelos seguintes diagramas:
+                        </p>
+                        <img src="src/images/garbagecollector.png" class="demo-img" alt="">
+                        <p class="section-paragraph">
+                            No diagrama à esquerda, podemos notar que há pontos (objetos) que não estão sendo referenciados ou não referenciam quaisquer outros objetos, bem como não podem ser alcançados a partir da raiz. O Garbage Collector então atua nesses pontos, deletando-os para recuperar a memória, que fica disponível para outros a utilizarem.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section" id="node_c_libuv">
+            <div class="container-sm">
+                <div class="cta-inner section-inner">
+                    <div class="cta-header text-center">
+                        <h2 class="section-title mt-0">Node, C++ e a Libuv</h2>
+                        <p class="section-paragraph">Baseado no motor V8 e na biblioteca libuv, o node é conhecido por lidar bem com tarefas concorrentes. Essa execução se deve justamente pela utilização da biblioteca open-source libuv, a qual utiliza thread-pool, que acaba fazendo o gerenciamento de processos, como sinalização e comunicação. Dentre os recursos importantes presentes no node, podemos destacar alguns ligados à libuv, como o IPC (Comunicação entre processos), eventos do file system, sockets TCP e UDP assíncronos, controle de threads, processos filhos e sinalização.
+                            O Event Loop, já mencionado aqui, é parte central dessa biblioteca, e é ele que estabelece o conteúdo para todas as operações de entrada e saída (I/O).
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section" id="aplicacoes_e_vantagens">
+            <div class="container-sm">
+                <div class="cta-inner section-inner">
+                    <div class="cta-header text-center">
+                        <h2 class="section-title mt-0">Aplicações e Vantagens</h2>
+                        <p class="section-paragraph">
+                            Entre as principais vantagens do nodejs, podemos citar:
+                            <p>
+                                A simplicidade e alta escalabilidade, onde é possível criar e subir um servidor rapidamente. Além disso, considerado para muitos um problema de segurança preocupante, a facilidade de integrar recursos novos através de dependências e frameworks é um dos destaques do Node.
+                            </p>
+                            <p>
+                                Performance, uma vez que é baseado na libuv (Escrito em C), e interpreta código JavaScript com a ajuda do motor V8 (Escrito em C++) do Google, o qual possui constante revisão de performance por parte desta. O Node é capaz de lidar com várias requisições simultâneas de maneira eficiente através de sua arquitetura Event-loop single-thread e non-blocking I/O, o que o torna uma escolha muito popular quando se trata de baixo custo de processamento para grandes e pequenas aplicações.
+                            </p>
+                            <p>
+                                Como o Node executa fora de um navegador, sua performance e gerenciamento de recursos acaba sendo muito mais eficiente, podendo usar recursos que não estão presentes nestes, como se comunicar diretamente com o gerenciador de arquivos do sistema, sockets TCP, entre outros.
+                            </p>
+                            <p>
+                                Por se tratar de um projeto open-source, possui suporte de grandes empresas e um número imenso de usuários adicionando e aperfeiçoando recursos diariamente.
+                            </p>
+                            <p>
+                                Com o crescimento da IoT, muitas dessas soluções tem empregado Node, por sua facilidade e eficiência, considerando que o Node é capaz de lidar com várias requisições através de sua arquitetura, o que é ideal para dispositivos com baixo poder de processamento como sistemas embarcados.
+                            Também muito popular, a arquitetura de microsserviços - utilizada por grandes empresa como Netflix e Amazon - ganha força com o uso do Node, pois a utilização de frameworks, como o Express, permite a criação de módulos responsáveis por partes específicas de um sistema, tornando fácil adicionar funcionalidades e dar manutenção.
+                            </p>
+                            <p>
+                                Entre outras aplicações, está o desenvolvimento de uma única API com Node, capaz de integrar sistemas Web, Desktop e Mobile, tornando aplicações mais consistentes e solidificando o ecossistema.
+                            </p>
+						</p>
+						<p>No exemplo abaixo, é possível observar um servidor Node criado com poucas linhas:</p>
+						<br>
+						<h3>Exemplo de servidor Node:</h3>
+						<div id="nodejs-server">
+//
+const http = require('http')
+const hostname = '127.0.0.1'
+const port = 8080 //process.env.PORT -> A porta definida pelo usuário
+
+const server = http.createServer((req, res) => {
+	res.statusCode = 200
+	res.setHeader('Content-Type', 'text/plain')
+	res.send('Hello World!\n')
+})
+
+server.listen(port, hostname, () => {
+	console.log(`Server running at http://${hostname}:${port}/`)
+})
+						</div>
+						<br>
+						<br>
+						<p>Utilizando alguns frameworks do Node, como o express, é possível criar um servidor e gerenciar rotas de forma mais fácil ainda: </p>
+						<br>
+						<h3>Exemplo de servidor Node utilizando o framework express:</h3>
+						<div id="nodejs-express">
+//
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+	res.send('Hello World!')
+})
+
+app.listen(port, () => {
+	console.log(`Example app listening at http://localhost:${port}`)
+})
+						</div>
+                        <!-- --Exemplo com node puro: https://runkit.com/tadra/nodejs-server
+                        --Exemplo com Expressjs: https://runkit.com/tadra/express-nodejs-server -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+
+
+        <section class="section" id="referencias">
+            <div class="container-sm">
+                <div class="cta-inner section-inner">
+                    <div class="cta-header text-center">
+                        <h2 class="section-title mt-0">Referências</h2>
+                        <dl>
+                            <dt><a href="https://blog.logrocket.com/a-complete-guide-to-threads-in-node-js-4fa3898fe74f/#:~:text=js%20really%20works-,Node.,as%20the%20proper%20Java%20code.">A complete guide to threads in Node.js</a></dt>
+                            <dt><a href="https://nodejs.org/en/about/"> About NodeJS</a> </dt>
+                            <dt><a href="https://nodejs.org/en/docs/meta/topics/dependencies/"> Dependencies </a></dt>
+                            <dt><a href="https://nodejs.org/en/docs/guides/dont-block-the-event-loop/"> Don't Block the Event Loop (or the Worker Pool)</a></dt>
+                            <dt><a href="https://dev.to/khaosdoctor/node-js-por-baixo-dos-panos-9-coletando-o-lixo-4gh"> Garbage Collection</a></dt>
+                            <dt><a href="https://imasters.com.br/desenvolvimento/gerenciando-o-fluxo-assincrono-de-operacoes-em-nodejs">Gerenciando o fluxo assíncrono de operações em NodeJS</a></dt>
+                            <dt><a href="https://dev.to/cpuram1/how-node-js-works-a-look-behind-the-scenes-49ld">How Node.js Works: A Look Behind The Scenes</a></dt>
+                            <dt><a href="https://nodejs.dev/learn">Introduction to Node.js</a></dt>
+                            <dt><a href="https://github.com/libuv/libuv">libuv</a></dt>
+                            <dt><a href="https://www.journaldev.com/7462/node-js-architecture-single-threaded-event-loop#node-js-architecture"> Node JS Architecture – Single Threaded Event Loop</a></dt>
+                            <dt><a href="https://blog.risingstack.com/node-js-at-scale-node-js-garbage-collection/">Node.js Garbage Collection Explained</a></dt>
+                            <dt><a href="https://www.linkedin.com/pulse/uma-arquitetura-para-web-com-nodejs-graphql-postgres-matheus/">Node.js - Uma descrição do ponto de vista da Arquitetura de Software</a></dt>
+                            <dt><a href="https://codeburst.io/node-js-v8-internals-an-illustrative-primer-83766e983bf6">Node.js V8 internals: an illustrative primer</a></dt>
+                            <dt><a href="https://www.freecodecamp.org/news/node-js-what-when-where-why-how-ab8424886e2">Node.js: what it is, when and how to use it, and why you should</a></dt>
+                            <dt><a href="https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/"> Overview of Blocking vs Non-Blocking</a></dt>
+                            <dt><a href="https://dev.to/khaosdoctor/node-js-por-baixo-dos-panos-3-um-mergulho-no-event-loop-38l9"> Um Mergulho no Event Loop</a></dt>
+                            <dt><a href="https://www.simplilearn.com/understanding-node-js-architecture-article">Understanding Node.js Architecture</a></dt>
+                            <dt><a href="https://www.freecodecamp.org/news/what-exactly-is-node-js-ae36e97449f5/">What exactly is Node.js?</a></dt>
+                            <dt><a href="https://medium.com/the-node-js-collection/why-the-hell-would-you-use-node-js-4b053b94ab8e">Why the Hell Would You Use Node.js</a></dt>
+                         </dl>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </section>
+
+
     </div>
 
+
+    <footer class="site-footer has-top-divider" id="footer">
+        <div class="container">
+            <div class="site-footer-inner">
+                <div class="site-footer-title">
+					<h3 class="site-footer-title">Desenvolvido por:
+					</h3>
+					<p class="site-footer-ownership">
+							Glaucia Maria Beló Dias
+					</p>
+					<p class="site-footer-ownership">
+							Lucas Tadra Mainginski
+					</p>
+					<div class="footer-copyright">&copy; 2020 Switch, all rights reserved</div>
+				</div>
+            </div>
+        </div>
+    </footer>
+</div>
     <script src="dist/js/main.min.js"></script>
+	<script src="dist/js/glau.js"></script>
+	<script src="https://embed.runkit.com" data-element-id="callstack-nodejs"></script>
+	<script src="https://embed.runkit.com" data-element-id="nodejs-server"></script>
+	<script src="https://embed.runkit.com" data-element-id="nodejs-express"></script>
 </body>
 
 </html>

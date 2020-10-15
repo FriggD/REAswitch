@@ -19,6 +19,21 @@
 	margin-bottom: 80px;
 }
 
+@include media('<medium') {
+	.hero-cta {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-top: 80px;
+		margin-bottom: 0px;
+		max-width: 100%;
+	}
+	.lights-toggle {
+		margin: auto!important;
+	}
+}
+
+
 .lights-toggle {
 	color: rgba(color(typography, 2), .64);
 }
@@ -66,6 +81,16 @@
 	}
 }
 
+
+#nodejs-feature {
+	position: absolute;
+	z-index: 99;
+	height: 98%;
+	width: 100%;
+	top: 45px;
+	left: 1px;
+}
+
 @include media( '<medium' ) {
 
 	.hero-cta {
@@ -81,6 +106,12 @@
 
 	.lights-toggle {
 		justify-content: center;
+	}
+
+	#nodejs-feature {
+		top: 2px;
+		width: 98%;
+		left: 4px;
 	}
 }
 
@@ -99,7 +130,7 @@
 	}
 
     .hero-copy {
-        padding-top: 40px;
+        padding-top: 0px;
         padding-right: 48px;
         min-width: 448px;
         max-width: 512px;
@@ -117,7 +148,8 @@
 	.hero-cta {
 		display: flex;
 		align-items: center;
-		margin: 0;
+		margin: 0 0 10px 0;
+		padding-top: 10px;
 
 		.button {
 			min-width: 170px;
@@ -148,5 +180,13 @@
 		left: -722px;
 		width: 1440px;
 		height: 324px;
+	}
+}
+
+@include media('>xlarge') {
+	#nodejs-feature {
+		top: 4px;
+		left: 6px;
+		width: 98%;
 	}
 }

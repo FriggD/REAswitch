@@ -21,6 +21,11 @@ main {
     flex: 1 0 auto;
 }
 
+.header-logo-image {
+	height: 55px;
+	margin-top: 8px;
+}
+
 .section-inner {
     position: relative; /* To always display inner elements above pseudo decorative stuff */
     padding-top: 48px;
@@ -31,6 +36,6 @@ main {
 
     .section-inner {
         padding-top: 88px;
-        padding-bottom: 88px;
+        padding-bottom: 44px;
     }
 }

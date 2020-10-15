@@ -27,6 +27,14 @@
 	}
 }
 
+#closebtn {
+	color: black;
+
+	.lights-off & {
+		color: white;
+	}
+}
+
 .feature {
 	text-align: center;
 	margin-bottom: 48px;
@@ -65,13 +73,18 @@
 	}
 }
 
+.demo-img {
+	display: block;
+	margin: 42px auto;
+}
+
 @include media( '>medium' ) {
 
 	.features {
 		position: relative;
 
 		.section-inner {
-			padding-bottom: 100px;
+			padding-bottom: 44px;
 		}
 
 		.section-paragraph {

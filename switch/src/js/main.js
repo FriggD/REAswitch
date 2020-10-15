@@ -5,6 +5,11 @@
   const lightSwitch = doc.getElementById('lights-toggle')
   /* global ScrollReveal */
   const sr = window.sr = ScrollReveal()
+  /* Menu Toggle */
+  const sideMenu = doc.getElementById('menu')
+  const menuSwitch = doc.getElementById('menu-toggle')
+  const closebtn = document.getElementById('closebtn')
+  const contentBlock = doc.querySelector('.content')
 
   rootEl.classList.remove('no-js')
   rootEl.classList.add('js')
@@ -34,17 +39,53 @@
     lightSwitch.addEventListener('change', checkLights)
   }
 
+  if (menuSwitch) {
+    window.addEventListener('load', displayMenu)
+    menuSwitch.addEventListener('change', displayMenu)
+  }
+
+  function displayMenu () {
+    let labelText = menuSwitch.parentNode.querySelector('.label-text')
+    if (menuSwitch.checked) {
+      sideMenu.style.display = 'none'
+      sideMenu.style.width = '0'
+      contentBlock.style.width = '100%'
+      contentBlock.style.marginLeft = '0'
+      body.classList.remove('menu-off')
+      if (labelText) {
+        labelText.innerHTML = 'off'
+      }
+    } else {
+      sideMenu.style.display = 'block'
+      sideMenu.style.width = '20em'
+      contentBlock.style.marginLeft = '355px'
+      contentBlock.style.width = 'calc(100vw - 355px)'
+      body.classList.add('menu-off')
+      if (labelText) {
+        labelText.innerHTML = 'on'
+      }
+    }
+  }
+
+  closebtn.onclick = function () {
+    sideMenu.style.display = 'none'
+    sideMenu.style.width = '0'
+    contentBlock.style.width = '100%'
+    contentBlock.style.marginLeft = '0'
+    menuSwitch.click()
+  }
+
   function checkLights () {
     let labelText = lightSwitch.parentNode.querySelector('.label-text')
     if (lightSwitch.checked) {
       body.classList.remove('lights-off')
       if (labelText) {
-        labelText.innerHTML = 'dark'
+        labelText.innerHTML = 'on'
       }
     } else {
       body.classList.add('lights-off')
       if (labelText) {
-        labelText.innerHTML = 'light'
+        labelText.innerHTML = 'off'
       }
     }
   }
