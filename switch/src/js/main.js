@@ -47,22 +47,23 @@
   function displayMenu () {
     let labelText = menuSwitch.parentNode.querySelector('.label-text')
     if (menuSwitch.checked) {
-      sideMenu.style.display = 'none'
-      sideMenu.style.width = '0'
-      contentBlock.style.width = '100%'
-      contentBlock.style.marginLeft = '0'
-      body.classList.remove('menu-off')
-      if (labelText) {
-        labelText.innerHTML = 'off'
-      }
-    } else {
+
       sideMenu.style.display = 'block'
       sideMenu.style.width = '20em'
       contentBlock.style.marginLeft = '355px'
       contentBlock.style.width = 'calc(100vw - 355px)'
-      body.classList.add('menu-off')
+      body.classList.remove('menu-off')
       if (labelText) {
         labelText.innerHTML = 'on'
+      }
+    } else {
+      sideMenu.style.display = 'none'
+      sideMenu.style.width = '0'
+      contentBlock.style.width = '100%'
+      contentBlock.style.marginLeft = '0'
+      body.classList.add('menu-off')
+      if (labelText) {
+        labelText.innerHTML = 'off'
       }
     }
   }
